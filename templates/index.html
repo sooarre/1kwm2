@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Skeleton application demoing Heroku and Flask integration.">
+  <meta name="author" content="@gotoariel">
+  <!-- <link rel="icon" href="favicon.ico"> -->
+
+  <title>Bar charts with Bokeh!</title>
+  <link href="{{ url_for('static', filename='assets/dist/js/bokeh-0.12.6.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/dist/js/bokeh-widgets-0.12.0.min.css') }}" rel="stylesheet">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <!-- <form id="stockinfo" action="/" method="POST"> -->
+      <form id='input' method='post' action="{{ url_for('stock_pars') }}">
+        <p>Stock Ticker Symbol (e.g. GOOG, IBM or HOG): <input type='text' name='tick_symb' placeholder='IBM'
+            value="John" /></p>
+        <p>
+          <input type="range" min="1" max="100" value="50" class="slider" name='ssl' id="myRange">
+        <p>Value: <span id="demo"></span></p>
+
+        <select name="cars" id="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+        <h1sliders</h1>
+        {{ the_div1|safe }}
+  
+        {{ the_script1|safe }}
+        <p><input type="submit" value="Submit"></p>
+      </form>
+
+      <h3>
+        valores seleccinados</h3>
+      {{tick_symb}}
+
+      {{var_tick}}
+
+      {{ccar}}
+      {{sssl}}
+
+      {{df|safe}}
+
+
+      <h1>Bugs found over the past {{ bars_count }} days</h1>
+      {{ the_div|safe }}
+
+      {{ the_script|safe }}
+
+
+
+
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='assets/dist/js/bokeh-0.12.6.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/dist/js/bokeh-widgets-0.12.6.min.js') }}"></script>
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    // output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+      output.innerHTML = this.value;
+    }
+  </script>
+
+</body>
+
+</html>
